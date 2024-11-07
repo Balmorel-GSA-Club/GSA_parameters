@@ -20,6 +20,9 @@ class GSA_parameters :
         East = '|'.join(East_l)
         West_l = ["FR","DE","NL","UK","BE","LU","AT","CH","IE" ]
         West = '|'.join(West_l)
+
+        FUELPRICE = scenario_data["FUELPRICE"].records
+        FUELPRICE.loc[FUELPRICE["FFF"]=="NATGAS","value"]*=sample["NATGAS_P"]
         
         SUBTECHGROUPKPOT = scenario_data["SUBTECHGROUPKPOT"].records
         SUBTECHGROUPKPOT.loc[(SUBTECHGROUPKPOT["TECH_GROUP"]=="SOLARPV") & (SUBTECHGROUPKPOT["CCCRRRAAA"].str.contains(North)), "value"]*= sample["PV_LIMIT_NORTH"]
