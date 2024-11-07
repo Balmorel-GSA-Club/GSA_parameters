@@ -25,4 +25,5 @@ ONS_LIMIT_NORTH,truncnorm,1,1.5,,
 ONS_LIMIT_SOUTH,truncnorm,1,1.5,,
 TRANS_DEMAND_REST,truncnorm,0.75,1.5,,
 TRANS_DEMAND_DE,truncnorm,0.75,1.5,,
+NATGAS_P,truncnorm,0.75,1.5,,
 
