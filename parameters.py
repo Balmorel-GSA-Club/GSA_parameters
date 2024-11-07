@@ -19,7 +19,9 @@ class GSA_parameters :
         SUBTECHGROUPKPOT = scenario_data["SUBTECHGROUPKPOT"].records
         SUBTECHGROUPKPOT.loc[(SUBTECHGROUPKPOT["TECH_GROUP"]=="SOLARPV") & (SUBTECHGROUPKPOT["CCCRRRAAA"].str.contains(North_PV)), "value"]*= sample["PV_LIMIT_NORTH"]
         SUBTECHGROUPKPOT.loc[(SUBTECHGROUPKPOT["TECH_GROUP"]=="SOLARPV") & (SUBTECHGROUPKPOT["CCCRRRAAA"].str.contains(South_PV)), "value"]*= sample["PV_LIMIT_SOUTH"]
-    
+        
+        FUELPRICE = scenario_data["FUELPRICE"].records
+        FUELPRICE.loc[FUELPRICE["FFF"]=="NATGAS","value"]*=sample["NATGAS_P"]
     
         North_l = ["NO","SE","NL","FIN", "UK","EE","LV","LT","PL","BE"]
         North = '|'.join(North_l)
