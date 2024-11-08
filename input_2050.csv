@@ -1,6 +1,6 @@
 ﻿Parameter,Distribution_type,Lower_bound,Upper_bound,Mean,Standard_deviation
 CO2_TAX,truncnorm,0.5,2,,
-CO2_EFF,truncnorm,0.9,1,1,,
+CO2_EFF,truncnorm,0.9,1.1,,
 ELYS_ELEC_EFF,truncnorm,0.8,1.2,,
 H2S_INVC,truncnorm,0.5,2,,
 SMR_CCS_INVC,truncnorm,0.5,2,,
@@ -26,4 +26,3 @@ ONS_LIMIT_SOUTH,truncnorm,1,2,,
 TRANS_DEMAND_REST,truncnorm,0.5,2,,
 TRANS_DEMAND_DE,truncnorm,0.5,2,,
 NATGAS_P,truncnorm,0.7,1.5,,
-
