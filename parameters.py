@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+from gamspy import SpecialValues
 
 # This class is used to deal with paramneters in the model
 class GSA_parameters :
@@ -72,5 +73,7 @@ class GSA_parameters :
         
         DE.loc[DE["RRR"].str.contains("DE") & (DE["DEUSER"].str.contains("TRANS_TRAINS|TRANS_BUS")), "value"] *= sample["TRANS_DEMAND_DE"]
         DE.loc[~DE["RRR"].str.contains("DE") & (DE["DEUSER"].str.contains("TRANS_TRAINS|TRANS_BUS")), "value"] *= sample["TRANS_DEMAND_REST"]
+        
+        SUBTECHGROUPKPOT.loc[SpecialValues.isEps(SUBTECHGROUPKPOT["value"]), "value"]=-9999
         
         return scenario_data
