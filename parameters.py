@@ -4,7 +4,7 @@ from gamspy import SpecialValues
 
 # This class is used to deal with paramneters in the model
 class GSA_parameters :
-    def __init__(self, input_file="input_params.csv"):
+    def __init__(self, input_file):
         self.input = pd.read_csv(input_file)
         self.parameters = self.input["Parameter"]
 
