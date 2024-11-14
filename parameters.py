@@ -51,6 +51,4 @@ class GSA_parameters :
         XKRATE = scenario_data["XKRATE"].records
         XKRATE.loc[:,"value"] = sample["E_T_AVAIL"]
         
-        SUBTECHGROUPKPOT.loc[SpecialValues.isEps(SUBTECHGROUPKPOT["value"]), "value"]=-9999
-        
         return scenario_data
