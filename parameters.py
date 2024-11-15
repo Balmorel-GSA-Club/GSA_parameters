@@ -78,6 +78,4 @@ class GSA_parameters :
         DE.loc[DE["RRR"].str.contains(East) & (DE["DEUSER"].str.contains("TRANS_TRAINS|TRANS_BUS")), "value"] *= sample["TRANS_DEMAND_EAST"]
         DE.loc[DE["RRR"].str.contains(West) & (DE["DEUSER"].str.contains("TRANS_TRAINS|TRANS_BUS")), "value"] *= sample["TRANS_DEMAND_WEST"]
         
-        SUBTECHGROUPKPOT.loc[SpecialValues.isEps(SUBTECHGROUPKPOT["value"]), "value"]=-9999
-        
         return scenario_data
