@@ -35,10 +35,10 @@ class GSA_parameters :
         SUBTECHGROUPKPOT.loc[SUBTECHGROUPKPOT["TECH_GROUP"]=="SOLARPV", "value"]*=sample["PV_NORTH"]
         SUBTECHGROUPKPOT.loc[(SUBTECHGROUPKPOT["TECH_GROUP"]=="WINDTURBINE_ONSHORE") & (SUBTECHGROUPKPOT["CCCRRRAAA"].str.contains("DK")) & (SUBTECHGROUPKPOT["value"]>=1e-320), "value"]*= sample["ON_SHORE_DK"]
         SUBTECHGROUPKPOT.loc[(SUBTECHGROUPKPOT["TECH_GROUP"]=="WINDTURBINE_ONSHORE") & (SUBTECHGROUPKPOT["CCCRRRAAA"].str.contains("DE")) & (SUBTECHGROUPKPOT["value"]>=1e-320), "value"]*= sample["ON_SHORE_DE"]
-        SUBTECHGROUPKPOT.loc[(SUBTECHGROUPKPOT["TECH_GROUP"]=="WINDTURBINE_ONSHORE") & (SUBTECHGROUPKPOT["CCCRRRAAA"].str.startswith(("NO","SE","NL"))) & (SUBTECHGROUPKPOT["value"]>=1e-320), "value"]*= sample["ON_SHORE_NORTH"]
+        SUBTECHGROUPKPOT.loc[(SUBTECHGROUPKPOT["TECH_GROUP"]=="WINDTURBINE_ONSHORE") & (SUBTECHGROUPKPOT["CCCRRRAAA"].str.startswith(("NO","SE","NL", "UK"))) & (SUBTECHGROUPKPOT["value"]>=1e-320), "value"]*= sample["ON_SHORE_NORTH"]
         SUBTECHGROUPKPOT.loc[(SUBTECHGROUPKPOT["TECH_GROUP"]=="WINDTURBINE_OFFSHORE") & (SUBTECHGROUPKPOT["CCCRRRAAA"].str.contains("DK")) & (SUBTECHGROUPKPOT["value"]>=1e-320), "value"]*= sample["OFF_SHORE_DK"]
         SUBTECHGROUPKPOT.loc[(SUBTECHGROUPKPOT["TECH_GROUP"]=="WINDTURBINE_OFFSHORE") & (SUBTECHGROUPKPOT["CCCRRRAAA"].str.contains("DE")) & (SUBTECHGROUPKPOT["value"]>=1e-320), "value"]*= sample["OFF_SHORE_DE"]
-        SUBTECHGROUPKPOT.loc[(SUBTECHGROUPKPOT["TECH_GROUP"]=="WINDTURBINE_OFFSHORE") & (SUBTECHGROUPKPOT["CCCRRRAAA"].str.startswith(("NO","SE","NL"))) & (SUBTECHGROUPKPOT["value"]>=1e-320), "value"]*= sample["OFF_SHORE_NORTH"]
+        SUBTECHGROUPKPOT.loc[(SUBTECHGROUPKPOT["TECH_GROUP"]=="WINDTURBINE_OFFSHORE") & (SUBTECHGROUPKPOT["CCCRRRAAA"].str.startswith(("NO","SE","NL", "UK"))) & (SUBTECHGROUPKPOT["value"]>=1e-320), "value"]*= sample["OFF_SHORE_NORTH"]
         
         XH2INVCOST = scenario_data["XH2INVCOST"]
         XH2INVCOST.columns = ["YYY", "IRRE", "IRRI", "value"]
@@ -48,13 +48,13 @@ class GSA_parameters :
         HYDROGEN_DH2.columns = ["YYY", "CCCRRRAAA", "value"]
         HYDROGEN_DH2.loc[(HYDROGEN_DH2["CCCRRRAAA"].str.contains("DK")) & (HYDROGEN_DH2["value"]>=1e-320), "value"] *= sample["H2_Demand_DK"]
         HYDROGEN_DH2.loc[(HYDROGEN_DH2["CCCRRRAAA"].str.contains("DE")) & (HYDROGEN_DH2["value"]>=1e-320), "value"] *= sample["H2_Demand_DE"]
-        HYDROGEN_DH2.loc[(HYDROGEN_DH2["CCCRRRAAA"].str.startswith(("NO", "SE", "NL"))) & (HYDROGEN_DH2["value"]>=1e-320), "value"] *= sample["H2_Demand_Rest"]
+        HYDROGEN_DH2.loc[(HYDROGEN_DH2["CCCRRRAAA"].str.startswith(("NO", "SE", "NL", "UK"))) & (HYDROGEN_DH2["value"]>=1e-320), "value"] *= sample["H2_Demand_Rest"]
         
         DE = scenario_data["DE"]
         DE.columns = ["YYY", "RRR", "DEUSER", "value"]
         DE.loc[(DE["RRR"].str.contains("DK")) & (DE["value"]>=1e-320), "value"] *= sample["DE_Demand_DK"]
         DE.loc[(DE["RRR"].str.contains("DE")) & (DE["value"]>=1e-320), "value"] *= sample["DE_Demand_DE"]
-        DE.loc[(DE["RRR"].str.startswith(("NO", "SE", "NL"))) & (DE["value"]>=1e-320), "value"] *= sample["DE_Demand_Rest"]
+        DE.loc[(DE["RRR"].str.startswith(("NO", "SE", "NL", "UK"))) & (DE["value"]>=1e-320), "value"] *= sample["DE_Demand_Rest"]
 
         XKRATE = scenario_data["XKRATE"]
         XKRATE.columns = ["IRRRE", "IRRRI", "SSS", "value"]
