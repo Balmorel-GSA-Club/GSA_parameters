@@ -1,0 +1,7 @@
+﻿Parameter,Distribution_type,Lower_bound,Upper_bound,Mean,Standard_deviation
+ELEC_STEAM_INVC,unif,0.3,2,,
+NATGAS_P,unif,0.5,1.5,,
+PV_NORTH,unif,0.2,1.5,,
+OFF_SHORE_DK,unif,0.2,1.5,,
+DE_Demand_DE,unif,0.2,2,,
+DE_Demand_Rest,unif,0.2,2,,
