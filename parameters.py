@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from gamspy import SpecialValues
+#from gamspy import SpecialValues
 
 # This class is used to deal with paramneters in the model
 class GSA_parameters :
